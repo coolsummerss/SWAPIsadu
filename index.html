@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarWars Front</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+
+    <div class="container mx-auto p-6">
+        
+        <div class="border-2 border-yellow-400 rounded-3xl p-6 shadow-2xl text-center mb-8 bg-slate-800">
+            <h1 class="text-4xl font-black text-yellow-400 tracking-wider">STAR WARS API</h1>
+            <p class="text-slate-400 text-sm mt-2">Películas de la Galaxia</p>
+        </div>
+
+        <div id="character-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            </div> 
+
+        <div class="flex justify-center gap-4 mt-8">
+            <button id="prev-btn" class="bg-yellow-500 text-slate-950 px-6 py-2 rounded-xl shadow-lg font-bold cursor-pointer hover:bg-yellow-400 transition duration-300">
+                Anterior
+            </button>
+            <button id="next-btn" class="bg-yellow-500 text-slate-950 px-6 py-2 rounded-xl shadow-lg font-bold cursor-pointer hover:bg-yellow-400 transition duration-300">
+                Siguiente
+            </button>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
