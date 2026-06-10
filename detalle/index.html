@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalle del Personaje</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        @font-face {
+            font-family: 'StarJedi';
+            src: url('../Starjedi.ttf') format('truetype');
+        }
+
+        body {
+            background-image: url('../fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .font-starwars {
+            font-family: 'StarJedi', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body class="bg-slate-950 min-h-screen flex justify-center items-center p-6 text-white">
+
+    <div id="character-detail"
+        class="max-w-2xl w-full bg-slate-900/90 backdrop-blur-md rounded-3xl p-8 border border-yellow-500 shadow-2xl">
+    </div>
+
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
