@@ -8,7 +8,7 @@ const searchInput = document.getElementById('search-input');
 let allCharacters = [];
 let selectedCharacters = []; 
 let currentPage = 1;
-const itemsPerPage = 8; 
+const itemsPerPage = 5; 
 
 const defaultSpaceImage = "./default.png";
 
@@ -50,7 +50,9 @@ const translate = (value) => {
 };
 
 const capitalize = (text) => {
-    if (!text) return 'Desconocido';
+    if (!text || typeof text !== 'string') {
+        return 'Desconocido';
+    }
 
     return text.charAt(0).toUpperCase() +
            text.slice(1).toLowerCase();
@@ -96,6 +98,7 @@ function renderPage() {
     const characters = filteredCharacters.slice(startIndex, endIndex);
 
     characters.forEach(character => {
+        console.log(character.name, character.homeworld);
         let imageUrl = character.image;
         if (brokenImages.includes(character.name) || !imageUrl) imageUrl = defaultSpaceImage;
 
@@ -127,7 +130,7 @@ function renderPage() {
 
     <div class="text-slate-400 text-[11px] text-center border-t border-slate-700 pt-2">
         <p><span class="text-slate-500">Especie:</span> <span>${translate(character.species)}</span></p>
-        <p><span class="text-slate-500">Origen:</span> <span>${character.homeworld ? capitalize(character.homeworld) : 'Desconocido'}</span></p>
+        <p><span class="text-slate-500">Origen:</span> <span>${capitalize(character.homeworld)}</span></p>
     </div>
 
 </div>
@@ -218,6 +221,8 @@ prevBtn.addEventListener('click', () => {
 
 nextBtn.addEventListener('click', () => {
 
+    console.log("ANTES:", currentPage);
+
     const searchTerm = searchInput?.value.toLowerCase() || '';
 
     const filteredCharacters = allCharacters.filter(character =>
@@ -228,6 +233,7 @@ nextBtn.addEventListener('click', () => {
 
     if (currentPage < maxPages) {
         currentPage++;
+        console.log("DESPUÉS:", currentPage);
         renderPage();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
