@@ -3,6 +3,32 @@ const detailDiv = document.getElementById('character-detail');
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
+const brokenImages = [
+    "Roos Tarpals",
+    "Rugor Nass",
+    "Adi Gallia",
+    "Saesee Tiin",
+    "Yarael Poof",
+    "Ric Olié",
+    "Ben Quadinaros",
+    "Mace Windu",
+    "Wedge Antilles",
+    "Lobot",
+    "Mon Mothma",
+    "Shmi Skywalker",
+    "Ratts Tyerell",
+    "Gasgano",
+    "Cordé",
+    "Luminara Unduli",
+    "Dormé",
+    "San Hill",
+    "Grievous",
+    "Dexter Jettster",
+    "Sly Moore",
+    "Tion Medon",
+    "Finn"
+];
+
 const translations = {
     "male": "Masculino",
     "female": "Femenino",
@@ -81,10 +107,15 @@ async function loadDetail() {
 
         const char = await response.json();
 
+        let imageUrl = char.image;
+
+        if (brokenImages.includes(char.name) || !imageUrl) {
+            imageUrl = "../default.png";
+        }
+
         detailDiv.innerHTML = `
-        
             <img
-                src="${char.image}"
+                src="${imageUrl}"
                 class="w-full h-96 object-contain bg-slate-950 rounded-2xl mb-6"
                 onerror="this.src='../default.png'"
             >
